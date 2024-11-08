@@ -32,7 +32,7 @@
         </ul>
       </li>
 
-     <x-menu />
+     <x-menu text="Logout" url="salom" is_logout=true />
      
     </ul>
   </nav>

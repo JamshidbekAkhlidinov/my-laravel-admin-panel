@@ -1,14 +1,19 @@
-@props(['text','icon'=>'fas fa-angle-left'])
+@props(['text','current'=>'','routes'=>[],'icon'=>'fas fa-angle-left'])
 
-<li class="nav-item menu-open">
-    <a href="#" class="nav-link active">
+@php
+      $isActive = in_array($current,$routes);
+      dump($current);
+@endphp
+
+<li class="nav-item {{ $isActive ? 'menu-open' : '' }}">
+  <a href="#" class="nav-link {{ $isActive ? 'active' : '' }}">
       <i class="nav-icon fas fa-tachometer-alt"></i>
       <p>
-        {{ $text }}
-        <i class="right {{ $icon }}"></i>
+          {{ $text }}
+          <i class="right {{ $icon }}"></i>
       </p>
-    </a>
-    <ul class="nav nav-treeview">
-        {{ $slot }}
-    </ul>
-  </li>
+  </a>
+  <ul class="nav nav-treeview">
+      {{ $slot }}
+  </ul>
+</li>

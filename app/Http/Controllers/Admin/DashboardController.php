@@ -10,4 +10,9 @@ class DashboardController extends Controller
     function index(){
         return view('admin.dashboard.index');
     }
+
+    function view(){
+        return view('admin.dashboard.index');
+    }
+
 }

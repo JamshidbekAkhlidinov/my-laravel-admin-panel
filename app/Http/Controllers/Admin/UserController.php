@@ -3,24 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class UserController extends Component
 {
-
-    #[Layout('admin.layouts.main')]
-
-
-    public function create(){
-
-        dd("salom");
-
-    }
+    use WithPagination;
 
     public function render()
     {
-        $users = User::all();
+        $users = User::orderBy('id','DESC')->paginate(5);
         return view('admin.user.index',[
             'users' => $users
         ]);

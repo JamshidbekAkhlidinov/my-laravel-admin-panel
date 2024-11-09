@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Livewire\Admin\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,5 +27,6 @@ Route::name('admin.')->middleware('auth')->prefix('admin')->group(function(){
     Route::get('/', [DashboardController::class,'index'])->name('dashboard');
     Route::get('view', [DashboardController::class,'index'])->name('view');
     Route::get('user', UserController::class)->name('user');
+    Route::get('user/create', UserController::class)->name('user.create');
 
 });

@@ -15,16 +15,22 @@
   <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset("dist/css/adminlte.min.css") }}">
+
+  @livewireStyles
+
 </head>
 <body class="hold-transition login-page">
-
+    @if(isset($slot))
+      {{ $slot }}
+    @endif
     @yield('content')
-
 <!-- jQuery -->
 <script src="{{ asset("plugins/jquery/jquery.min.js") }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset("plugins/bootstrap/js/bootstrap.bundle.min.js") }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset("dist/js/adminlte.min.js") }}"></script>
+@livewireScriptConfig 
+@livewireScripts
 </body>
 </html>

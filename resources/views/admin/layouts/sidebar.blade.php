@@ -34,7 +34,7 @@
     
     </x-tree>
 
-    <x-menu text="Four" :url="route('admin.dashboard')"/>
+    <x-menu text="Users" current="{{ $current }}" :url="route('admin.user')" :routes="['admin.user']"/>
 
     <x-menu 
       text="View" 

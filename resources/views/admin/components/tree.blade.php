@@ -2,7 +2,6 @@
 
 @php
       $isActive = in_array($current,$routes);
-      dump($current);
 @endphp
 
 <li class="nav-item {{ $isActive ? 'menu-open' : '' }}">

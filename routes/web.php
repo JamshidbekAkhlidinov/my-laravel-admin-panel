@@ -10,6 +10,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('all',function(){
+    $routes = collect(Route::getRoutes())->map(function ($route) {
+        return [
+            'uri' => $route->uri(),
+            'name' => $route->getName(),
+            // 'methods' => $route->methods(),
+        ];
+    });
+
+    return response()->json($routes);
+});
+
 
 Route::prefix('auth')->middleware('guest')->group(function(){
     Route::get('login',[AuthController::class,'login'])->name('login');
